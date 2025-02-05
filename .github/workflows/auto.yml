@@ -26,12 +26,6 @@ jobs:
         run: |
           papermill rpa_buscar_nomes_vf.ipynb output.ipynb
 
-      - name: Commit dos resultados
+      - name: Converter notebook para texto e imprimir saída
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add output.ipynb
-          git commit -m "Atualização automática do notebook"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          jupyter nbconvert --to markdown temp_output.ipynb --stdout
