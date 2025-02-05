@@ -28,4 +28,4 @@ jobs:
 
       - name: Converter notebook para texto e imprimir saída
         run: |
-          jupyter nbconvert output.ipynb --stdout
+          jupyter nbconvert --to markdown output.ipynb --stdout
